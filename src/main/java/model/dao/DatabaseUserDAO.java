@@ -7,12 +7,8 @@ import model.entity.Pedidos;
 import model.entity.Usuario;
 
 public interface DatabaseUserDAO {
-	
-	public boolean cadastrarNovosUsuario(Usuario user);
+
 	public Usuario encontrarUsuarioRegistrado(String email);
-	public List<Pedidos> listarTodosPedidos();
-	public List<Pedidos> mostrarPedidoUsuario(Usuario user);
-	public boolean cadastrarPedido(Pedidos pedido);
-	
-	
+	public boolean cadastrarNovoUsuario(Usuario user);
+
 }

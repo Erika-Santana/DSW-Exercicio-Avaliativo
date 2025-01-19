@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+html, body {
+    height: 100%; 
+    background: #362648;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index_container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+ 	background-color: rgba(234, 227, 240, 0.7);
+    border-radius: 7px;
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    margin: 30px;
+}
+
+.alinhamento_botao{
+	display: flex;
+}
+
+.btn.btn-secondary.btn-lg {
+    margin: 10px;
+}
+
+.welcome_container {
+    padding: 20px;
+}

@@ -10,28 +10,22 @@ public class LoginCommand implements Command{
 	
 	private static DatabaseUserImp daoUser = new DatabaseUserImp();
 
-	public LoginCommand() {
-	}
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse resp) {
-		var login = request.getParameter("login");
-		var senha = request.getParameter("senha");
-		
-		
-		
-		Usuario user = new Usuario(login, senha); 
-		boolean resultado = daoUser.cadastrarNovosUsuario(user);
-		
-		if (resultado) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			return "front.do?action=logged";
-		}else {
-			request.setAttribute("error_login", false);
-			return "front.do?action=getLoginForm";
-		}
+	    var login = request.getParameter("login");
+	    var senha = request.getParameter("senha");
 
+	    Usuario user = daoUser.encontrarUsuarioRegistrado(login);
+	    
+	    if (user != null) {
+	        HttpSession session = request.getSession();
+	        session.setAttribute("user", user);
+	      
+	        return "logged.jsp";
+	    } else {
+	        request.setAttribute("error_login", true);
+	        return "login.jsp";
+	    }
+	    
 	}
-
 }

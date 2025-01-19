@@ -41,7 +41,7 @@ public class Usuario {
 
 	 
 	public boolean addPedido(Pedidos pedido) {
-		//Fazer verificação
+		
 		listaPedidos.add(pedido);
 		return true;
 	}
