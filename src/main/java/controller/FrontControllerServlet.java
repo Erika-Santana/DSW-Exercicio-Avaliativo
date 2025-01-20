@@ -5,8 +5,13 @@ import java.io.IOException;
 import controller.command.AlterOrderCommand;
 import controller.command.Command;
 import controller.command.DeleteOrderCommand;
+import controller.command.GetAlterOrderFormCommand;
+import controller.command.GetDeleteOrderFormCommand;
+import controller.command.GetIndexCommand;
 import controller.command.GetLoginPageCommand;
+import controller.command.GetOrderReportCommand;
 import controller.command.GetRegisterForm;
+import controller.command.GetRegisterOrderFormCommand;
 import controller.command.LoggedCommand;
 import controller.command.LoginCommand;
 import controller.command.LogoutCommand;
@@ -26,7 +31,7 @@ public class FrontControllerServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		processRequest(req, resp);
-		super.doGet(req, resp);
+		
 	}
        
 	/**
@@ -41,14 +46,7 @@ public class FrontControllerServlet extends HttpServlet {
 		Command command = null;
 		String action = request.getParameter("action");
 		
-		 if (action == null) {
-				String view = "error.jsp";
-				var dispatcher = request.getRequestDispatcher(view);
-				dispatcher.forward(request, response);
-		    }
-		 
-		 System.out.print("Action: " + action);
-		
+			 
 		if (action.equals("login")) {
 			command = new LoginCommand();
 		}else if(action.equals("getRegisterForm")) {
@@ -59,20 +57,31 @@ public class FrontControllerServlet extends HttpServlet {
 			command = new GetLoginPageCommand();
 		}else if(action.equals("register")) {
 			command = new RegisterCommand();
-		}else if(action.equals("registerOrder")) {
-			command = new RegisterOrderCommand();
-		}else if(action.equals("alterOrder")) {
-			command = new AlterOrderCommand();
-		}else if(action.equals("deleteOrder")) {
-			command = new DeleteOrderCommand();
+		}else if(action.equals("registerOrderForm")) {
+			command = new GetRegisterOrderFormCommand();
+		}else if(action.equals("alterOrderForm")) {
+			command = new GetAlterOrderFormCommand();
+		}else if(action.equals("deleteOrderForm")) {
+			command = new GetDeleteOrderFormCommand();
 		}else if(action.equals("logout")) {
 			command = new LogoutCommand();
+		}else if(action.equals("getOrderReport")) {
+			command = new GetOrderReportCommand();
+		}else if(action.equals("home")) {
+			command = new GetIndexCommand();
 		}else if(action.equals("orderReport")) {
 			command = new OrderReportCommand();
+		}else if(action.equals("deleteOrder")) {
+			command = new DeleteOrderCommand();
+		}else if(action.equals("alterOrder")) {
+			command = new AlterOrderCommand();
+		}else if(action.equals("registerOrder")) {
+			command = new RegisterOrderCommand();
 		}	
+		
 
 		String view = command.execute(request, response);
-		System.out.print("View: " + view);
+		
 		var dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 				

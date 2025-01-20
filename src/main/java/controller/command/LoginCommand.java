@@ -14,6 +14,7 @@ public class LoginCommand implements Command{
 	public String execute(HttpServletRequest request, HttpServletResponse resp) {
 	    var login = request.getParameter("login");
 	    var senha = request.getParameter("senha");
+	    
 
 	    Usuario user = daoUser.encontrarUsuarioRegistrado(login);
 	    

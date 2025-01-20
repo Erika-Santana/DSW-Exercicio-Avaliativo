@@ -9,22 +9,20 @@
 <title>Login</title>
 </head>
 <body>
+<jsp:include page="includes/menu.jsp"></jsp:include>
 	<div class="index_container">
 		<form action="front.do?action=login" method="post">
 		  <div class="mb-3">
 		   <% 
 		    Boolean usuarioNaoLogado = (Boolean) request.getAttribute("error_login");
 		    if (usuarioNaoLogado != null) {
-			    	
 						out.println("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">");
 						out.println("<h2> Conta inexistente! </h2>");
 						out.println("<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-					
 			    }
 			%>
-
 		    <label for="exampleInputEmail1" class="form-label">Login</label>
-		    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required="required">
+		    <input type="email" class="form-control" id="login" name="login" aria-describedby="emailHelp" required="required">
 		  </div>
 		  <div class="mb-3">
 		    <label for="exampleInputPassword1" class="form-label">Senha</label>

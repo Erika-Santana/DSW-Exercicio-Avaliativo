@@ -8,11 +8,8 @@
     <title>Bem vindo!</title>
 </head>
 <body>
-
+<jsp:include page="includes/menu.jsp"></jsp:include>
 	<div class="index_container">
-		<div class="welcome_container">
-			<h2>Welcome!!</h2>
-		</div>
 		<div class="alinhamento_botao">
 	        <form action="front.do?action=getLoginForm" method="post">
 	           <button type="submit" class="btn btn-secondary btn-lg">Login</button>

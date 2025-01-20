@@ -1,25 +1,22 @@
 package controller.command;
 
-import java.util.List;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.FabricOrderDAO;
 import model.entity.Pedidos;
 
-public class OrderReportCommand implements Command {
+public class GetAlterOrderFormCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse resp) {
-		
+		var id = Integer.parseInt(request.getParameter("id"));
 		var dao = new FabricOrderDAO().factory();
 		
-		List<Pedidos> listaPedidos = dao.listarTodosPedidos();
+		Pedidos pedido = dao.retornaPedido(id);
 		
-		if (listaPedidos != null) {
-			request.getSession(false).setAttribute("listaPedidos", listaPedidos);
-		}
-			return "paginaRelatorios.jsp";
+		request.setAttribute("pedido", pedido);
+		
+		return "alterOrder.jsp";
 	}
 
 }

@@ -22,14 +22,11 @@ public class DatabaseUserImp implements DatabaseUserDAO{
 	
 	
 	private static final String INSERT_USER = "INSERT INTO usuario(login, senha) VALUES(?, ?)";
-	private static final String SELECT_USER = "SELECT * FROM usuario WHERE login = ?";
+	private static final String SELECT_USER = "SELECT login, senha FROM usuario WHERE login = ?";
 	
 	
 	public boolean cadastrarNovoUsuario(Usuario user) {
 		
-		if (user == null || user.getLogin() == null || user.getSenha() == null) {
-	        throw new IllegalArgumentException("Usuário, login ou senha não podem ser nulos");
-	    }
 		
 		int rows = 0;
 		
@@ -66,6 +63,8 @@ public class DatabaseUserImp implements DatabaseUserDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		System.out.print("Login: " + user.getLogin() + " Senha: " + user.getSenha());
 		return user;
 		
 	}
