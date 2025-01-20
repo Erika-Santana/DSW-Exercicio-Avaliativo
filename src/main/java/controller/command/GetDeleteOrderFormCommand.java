@@ -8,7 +8,7 @@ public class GetDeleteOrderFormCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		return "deleteOrder.jsp";
+		return "/logged/deleteOrder.jsp";
 	}
 
 }

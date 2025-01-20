@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<jsp:include page="includes/menu.jsp"></jsp:include>
+<jsp:include page="../includes/menu.jsp"></jsp:include>
 	<div class="index_container">
 		<div class="welcome_container">
 			<h2>Welcome!!</h2>

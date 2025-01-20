@@ -10,7 +10,7 @@
 <title>Alterar pedido</title>
 </head>
 <body>
-	<jsp:include page="includes/menu.jsp"/>
+	<jsp:include page="../includes/menu.jsp"/>
 	<div class="index_container">
 		<form action="front.do?action=alterOrder" method="post">
 			<div class="titulos_form">
@@ -19,9 +19,7 @@
 						String mensagem = (String)request.getAttribute("message_alterOrder");
 				 		Pedidos pedido = (Pedidos)request.getAttribute("pedido");
 						if(mensagem != null && !mensagem.isEmpty()){		
-								out.println("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">");
 								out.println("<h4> " + mensagem + "</h4>");
-								out.println("<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
 						}
 					%>
 			</div>

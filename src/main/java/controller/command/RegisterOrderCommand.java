@@ -2,8 +2,8 @@ package controller.command;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.dao.FabricOrderDAO;
-import model.dao.FabricUserDAO;
+import model.dao.OrderDAOFactory;
+import model.dao.UserDAOFactory;
 import model.entity.Pedidos;
 import model.entity.Usuario;
 
@@ -21,7 +21,7 @@ public class RegisterOrderCommand implements Command {
 		String mensagem = ""; 
 		
 		if (user != null) {
-			var dao = new FabricOrderDAO().factory();
+			var dao = new OrderDAOFactory().factory();
 		
 			Pedidos pedido = new Pedidos(nomeCliente, endereco, Long.parseLong(valor), descricao, user);
 			boolean resultado = dao.cadastrarPedido(pedido);
@@ -40,7 +40,7 @@ public class RegisterOrderCommand implements Command {
 			return "index.jsp";
 		}
 		
-		return "registerOrder.jsp";
+		return "/logged/registerOrder.jsp";
 	}
 
 }

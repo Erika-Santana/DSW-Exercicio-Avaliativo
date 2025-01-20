@@ -19,8 +19,11 @@
 	        <li class="nav-item">
 	          <a class="nav-link" href="front.do?action=orderReport">Visualizar pedidos</a>
 	        </li>
-	            <li class="nav-item">
+	         <li class="nav-item">
 	          <a class="nav-link" href="front.do?action=registerOrderForm">Criar pedido</a>
+	        </li>
+	         <li class="nav-item">
+	          <a class="nav-link" href="front.do?action=getRegisterForm">Registrar usuario</a>
 	        </li>
 	      </ul>
 	      <form class="d-flex" role="search" action="front.do?action=logout" method="post">

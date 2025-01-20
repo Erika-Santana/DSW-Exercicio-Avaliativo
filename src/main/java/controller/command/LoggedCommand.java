@@ -16,7 +16,7 @@ public class LoggedCommand implements Command{
 		}else {
 			request.setAttribute("UsuarioLogado", false);
 		}
-		return "logged.jsp";
+		return "/logged/logged.jsp";
 	}
 
 }

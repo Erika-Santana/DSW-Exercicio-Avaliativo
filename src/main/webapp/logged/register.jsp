@@ -10,16 +10,16 @@
 </head>
 <body>
 
-<jsp:include page="includes/menu.jsp"></jsp:include>
+<jsp:include page="../includes/menu.jsp"></jsp:include>
  <div class="index_container">
        
         <% 
 			String mensagem = (String)request.getAttribute("mensagem");
 			if(mensagem != null && !mensagem.isEmpty()){
 							
-					out.println("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">");
+					
 					out.println("<h2> " + mensagem + "</h2>");
-					out.println("<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+					
 			}
 		%>
         <div>

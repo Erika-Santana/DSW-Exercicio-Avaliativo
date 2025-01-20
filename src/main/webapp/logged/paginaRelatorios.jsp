@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<jsp:include page="includes/menu.jsp"></jsp:include>
+	<jsp:include page="../includes/menu.jsp"></jsp:include>
 	
 	
     <h1>Tabela de Pedidos</h1>

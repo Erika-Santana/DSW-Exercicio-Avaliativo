@@ -9,10 +9,12 @@ import javax.sql.DataSource;
 
 public class DatabaseConnection {
 	
+	
+	
 	private static final String RESOURCES= "java:/comp/env/jdbc/mysql";
 
 	private DatabaseConnection() {
-		// TODO Auto-generated constructor stub
+	
 	}
 	
 	public static Connection getConnection() throws SQLException {

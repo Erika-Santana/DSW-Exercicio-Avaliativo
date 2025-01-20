@@ -11,14 +11,13 @@
 <body>
 <jsp:include page="includes/menu.jsp"></jsp:include>
 	<div class="index_container">
-		<form action="front.do?action=login" method="post">
+		<form action="frontFilter.do?action=login" method="post">
 		  <div class="mb-3">
 		   <% 
 		    Boolean usuarioNaoLogado = (Boolean) request.getAttribute("error_login");
 		    if (usuarioNaoLogado != null) {
-						out.println("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">");
-						out.println("<h2> Conta inexistente! </h2>");
-						out.println("<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+
+					out.println("<h2> Conta inexistente! </h2>");	
 			    }
 			%>
 		    <label for="exampleInputEmail1" class="form-label">Login</label>

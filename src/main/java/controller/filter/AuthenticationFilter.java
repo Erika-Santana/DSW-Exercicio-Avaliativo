@@ -1,38 +1,38 @@
 package controller.filter;
 
+import java.io.IOException;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
-import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.IOException;
-import java.net.http.HttpRequest;
+/*Filter responsável por interceptar qualquer requisição direcionada para o servlet(front.do) e todos os acessos
+ * para as páginas jsp que estão na pasta "logged".
+ * Caso o usuário tenha feito o Login e seja autenticado, ele vai poder ter acesso ao front.do, na qual está com todos os
+ * commands para o processamento das ações do sistema e caso não, irá ser direcionado para o formulário de login*/
 
-@WebFilter("front.do")
-public class AuthenticationFilter extends HttpFilter implements Filter {
-    
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		
-		HttpServletRequest httpReques = (HttpServletRequest)request;
-		HttpSession session = httpReques.getSession(false);
+@WebFilter(urlPatterns={"/front.do", "/logged/*"})
+public class AuthenticationFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpSession session = httpRequest.getSession(false);
+
 		if (session != null && session.getAttribute("user") != null) {
 			chain.doFilter(request, response);
-			
-		}else {
+		} else {
 			request.setAttribute("message", "Acesso permitido apenas para usuário logado.");
-			
-			var dispatcher = request.getRequestDispatcher("front.do?action=getLoginForm");
+
+			var dispatcher = request.getRequestDispatcher("frontFilter.do?action=getLoginForm");
 			dispatcher.forward(request, response);
 		}
-		
-		chain.doFilter(request, response);
-	}
 
+	}
 }

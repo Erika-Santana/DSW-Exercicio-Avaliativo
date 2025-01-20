@@ -12,6 +12,11 @@ import model.entity.Usuario;
 
 public class DatabaseUserImp implements DatabaseUserDAO{
 	
+	/*Classe concreta responsável por ser o reposítorio da Database do Usuário.
+	 * irá guardar todas as operações que podem ser manipuladas dentro do banco de dados.
+	 * Herda da interface DatabaseUserDAO
+	 * */
+	
 	private static final String CRIAR_BANCO = "CREATE DATABASE prova";
 	private static final String CREATE_TABLE_USER = "CREATE TABLE usuario(\n"
 			+ "	login VARCHAR(50) NOT NULL,\n"
@@ -20,8 +25,8 @@ public class DatabaseUserImp implements DatabaseUserDAO{
 			+ "    PRIMARY KEY (login)\n"
 			+ ");\n";
 	
-	
 	private static final String INSERT_USER = "INSERT INTO usuario(login, senha) VALUES(?, ?)";
+	private static final String INSERT_ADMIN = "INSERT INTO usuario(login, senha) VALUES(admin, admin)";
 	private static final String SELECT_USER = "SELECT login, senha FROM usuario WHERE login = ?";
 	
 	

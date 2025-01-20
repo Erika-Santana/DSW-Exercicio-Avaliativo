@@ -10,6 +10,10 @@ import model.entity.Usuario;
 
 public class DatabasePedidosImp implements DatabasePedidosDAO{
 	
+	/*Classe concreta responsável por ser o reposítorio da Database dos Pedidos.
+	 * irá guardar todas as operações que podem ser manipuladas dentro do banco de dados sobre os pedidos.
+	 * Herda da interface DatabaseOrderDAO
+	 * */
 	
 	
 	private static final String CREATE_TABLE_PEDIDOS = "CREATE TABLE pedidos(\n"
@@ -27,7 +31,6 @@ public class DatabasePedidosImp implements DatabasePedidosDAO{
 			+ ")";
 	
 	private static final String SELECT_PEDIDOS = "SELECT * FROM pedidos";
-
 	private static final String SELECT_AN_ORDER = "SELECT * FROM pedidos WHERE id_pedidos = ?";
 	private static final String SELECT_PEDIDOS_USER = "SELECT * FROM pedidos WHERE login = ?";
 	private static final String INSERT_PEDIDOS = "INSERT INTO pedidos(nomeCliente, enderecoEntrega, valor, descricao, login) VALUES (?, ?, ?, ?, ?)";

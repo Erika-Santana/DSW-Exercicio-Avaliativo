@@ -26,7 +26,7 @@ public class RegisterCommand implements Command{
 		request.setAttribute("mensagem", mensagem);
 	
 		
-		return "register.jsp";
+		return "/logged/register.jsp";
 	}
 
 }

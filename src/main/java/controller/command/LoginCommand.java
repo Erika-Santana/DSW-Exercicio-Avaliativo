@@ -22,7 +22,7 @@ public class LoginCommand implements Command{
 	        HttpSession session = request.getSession();
 	        session.setAttribute("user", user);
 	      
-	        return "logged.jsp";
+	        return "/logged/logged.jsp";
 	    } else {
 	        request.setAttribute("error_login", true);
 	        return "login.jsp";

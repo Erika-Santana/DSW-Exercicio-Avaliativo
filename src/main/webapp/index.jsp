@@ -11,12 +11,9 @@
 <jsp:include page="includes/menu.jsp"></jsp:include>
 	<div class="index_container">
 		<div class="alinhamento_botao">
-	        <form action="front.do?action=getLoginForm" method="post">
+	        <form action="frontFilter.do?action=getLoginForm" method="post">
 	           <button type="submit" class="btn btn-secondary btn-lg">Login</button>
 	        </form>
-		        <form action="front.do?action=getRegisterForm" method="post">
-		           <button type="submit" class="btn btn-secondary btn-lg">Registrar-se</button>
-		    </form>
     	</div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

@@ -1,15 +1,15 @@
 package model.dao;
 
 
-public class FabricUserDAO {
+public class UserDAOFactory {
 
 private DatabaseUserType type;
 	
-	public FabricUserDAO() {
+	public UserDAOFactory() {
 		type = DatabaseUserType.DATAUSER;
 	}
 
-	public FabricUserDAO(DatabaseUserType tipo) {
+	public UserDAOFactory(DatabaseUserType tipo) {
 		type = tipo;
 	}
 

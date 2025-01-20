@@ -7,7 +7,7 @@ public class GetRegisterOrderFormCommand implements Command{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		return "registerOrder.jsp";
+		return "/logged/registerOrder.jsp";
 	}
 
 }

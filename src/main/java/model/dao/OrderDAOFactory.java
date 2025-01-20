@@ -1,14 +1,15 @@
 package model.dao;
 
-public class FabricOrderDAO {
+public class OrderDAOFactory {
 	
+	/**/
 	private DatabaseOrderType type;
 	
-	public FabricOrderDAO() {
+	public OrderDAOFactory() {
 		type = DatabaseOrderType.DATAORDER;
 	}
 
-	public FabricOrderDAO(DatabaseOrderType tipo) {
+	public OrderDAOFactory(DatabaseOrderType tipo) {
 		type = tipo;
 	}
 

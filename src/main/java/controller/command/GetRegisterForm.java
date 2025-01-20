@@ -8,6 +8,6 @@ public class GetRegisterForm implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse resp) {
 
-		return "register.jsp";
+		return "/logged/register.jsp";
 	}
 }
