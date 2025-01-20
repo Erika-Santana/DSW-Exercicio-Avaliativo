@@ -19,4 +19,4 @@ CREATE TABLE pedidos (
     ON UPDATE CASCADE
 );
 
-INSERT INTO usuario(login, senha) VALUES ('ADMIN', 'admin');
+INSERT INTO usuario(login, senha) VALUES ('admin@outlook.com', 'admin');
